@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    image: library-citations:local
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /data/citations.db
+    volumes:
+      - citations-data:/data
+    restart: unless-stopped
+
+volumes:
+  citations-data:
